@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8s43qgxwcbvx"]
+[gd_scene load_steps=12 format=3 uid="uid://b8s43qgxwcbvx"]
 
 [ext_resource type="Texture2D" uid="uid://cekho14phtksa" path="res://Art/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_llaob"]
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_se4lu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x37wm"]
 atlas = ExtResource("1_llaob")
@@ -68,6 +69,11 @@ animations = [{
 size = Vector2(8, 12)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_se4lu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lwa05")
