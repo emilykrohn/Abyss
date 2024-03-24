@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcbygmx7wnxr"]
+[gd_scene load_steps=9 format=3 uid="uid://bcbygmx7wnxr"]
 
 [ext_resource type="Texture2D" uid="uid://c1li420pjhu3l" path="res://Art/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_ixqo2"]
-[ext_resource type="PackedScene" uid="uid://b8s43qgxwcbvx" path="res://Scenes/player.tscn" id="1_sshvw"]
+[ext_resource type="PackedScene" uid="uid://b8s43qgxwcbvx" path="res://Scenes/Player/player.tscn" id="1_sshvw"]
 [ext_resource type="Texture2D" uid="uid://q8o6m2x6qxu7" path="res://Art/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="2_rl4qs"]
+[ext_resource type="Script" path="res://Scenes/Player/player_stats.gd" id="4_lhnut"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mw4er"]
 texture = ExtResource("1_ixqo2")
@@ -301,6 +302,16 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_mw4er")
 sources/1 = SubResource("TileSetAtlasSource_hmrbs")
 
+[sub_resource type="Resource" id="Resource_jqljv"]
+resource_local_to_scene = true
+script = ExtResource("4_lhnut")
+max_health = 100
+damage = 5
+agility = 0
+luck = 0
+defense = 0.0
+speed = 5500.0
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -313,3 +324,4 @@ layer_1/tile_data = PackedInt32Array(65536, 524289, 1, 131072, 524289, 1, 196608
 
 [node name="Player" parent="." instance=ExtResource("1_sshvw")]
 position = Vector2(207, 119)
+player_stats = SubResource("Resource_jqljv")
