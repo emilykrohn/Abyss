@@ -8,8 +8,8 @@ var health: int
 func _ready():
 	health = entity_stats.max_health
 
-func movement(target: Entity, delta: float):
-	velocity = target.global_position * entity_stats.speed * delta
+func movement(start:Entity, target: Entity, delta: float):
+	start.global_position += (target.global_position - start.global_position).normalized() * entity_stats.speed * delta
 
 func damage(target: Entity):
 	target.take_damage(entity_stats.attack_damage)
