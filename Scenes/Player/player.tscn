@@ -7,12 +7,14 @@
 [sub_resource type="Resource" id="Resource_558n6"]
 resource_local_to_scene = true
 script = ExtResource("2_jdirv")
+level = 1
+xp = 0
 max_health = 100
 damage = 5
 agility = 5
 luck = 5
 defense = 5.0
-speed = 5500.0
+speed = 7000.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x37wm"]
 atlas = ExtResource("1_llaob")

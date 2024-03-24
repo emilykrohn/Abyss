@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs2kk0lxome7p"]
+
+[ext_resource type="Script" path="res://Scenes/Entity/Entity.gd" id="1_q2mhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wntlr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kak8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi1d5"]
+
+[node name="Entity" type="CharacterBody2D"]
+script = ExtResource("1_q2mhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wntlr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4kak8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qi1d5")

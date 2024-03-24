@@ -2,6 +2,8 @@ extends Resource
 
 class_name PlayerStats
 
+@export var level: int
+@export var xp: int
 @export var max_health: int
 @export var damage: int
 @export var agility: int
