@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 110.0
 
 func _physics_process(delta):
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
+	
 	if direction:
-		velocity.x = direction * SPEED
+		velocity = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity = Vector2.ZERO
 
 	move_and_slide()
