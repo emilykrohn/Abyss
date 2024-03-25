@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cekho14phtksa" path="res://Art/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_llaob"]
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_se4lu"]
 [ext_resource type="Script" path="res://Scenes/Player/player_stats.gd" id="2_jdirv"]
-[ext_resource type="Script" path="res://Scenes/Entity/Entity_stats.gd" id="3_52ttv"]
+[ext_resource type="Script" path="res://Scenes/Entity/Entity_stats.gd" id="3_6x202"]
 
 [sub_resource type="Resource" id="Resource_558n6"]
 resource_local_to_scene = true
@@ -17,10 +17,10 @@ luck = 5
 defense = 5.0
 speed = 7000.0
 
-[sub_resource type="Resource" id="Resource_xsj86"]
-script = ExtResource("3_52ttv")
-speed = 5000.0
-max_health = 100
+[sub_resource type="Resource" id="Resource_vfrna"]
+script = ExtResource("3_6x202")
+speed = 7000.0
+max_health = 50
 attack_damage = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x37wm"]
@@ -92,7 +92,7 @@ size = Vector2(8, 12)
 collision_mask = 6
 script = ExtResource("1_se4lu")
 player_stats = SubResource("Resource_558n6")
-entity_stats = SubResource("Resource_xsj86")
+entity_stats = SubResource("Resource_vfrna")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

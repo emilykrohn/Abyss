@@ -3,7 +3,9 @@ extends CharacterBody2D
 class_name Entity
 
 @export var entity_stats: EntityStats
+
 var health: int
+var direction: Vector2 = Vector2.ZERO
 
 func _ready():
 	health = entity_stats.max_health

@@ -1,0 +1,95 @@
+[gd_scene load_steps=18 format=3 uid="uid://dfhggj82nhpmt"]
+
+[ext_resource type="PackedScene" uid="uid://bs2kk0lxome7p" path="res://Scenes/Enemies/Enemy/enemy.tscn" id="1_groaq"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Chort/chort.gd" id="2_n75e1"]
+[ext_resource type="Texture2D" uid="uid://cekho14phtksa" path="res://Art/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="2_w3q4x"]
+[ext_resource type="Script" path="res://Scenes/Entity/Entity_stats.gd" id="3_7so6q"]
+[ext_resource type="Texture2D" uid="uid://c7qxbjf0yymje" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f0.png" id="3_bjw4e"]
+[ext_resource type="Texture2D" uid="uid://bq0y0hd1i6ra4" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f1.png" id="4_w4nlg"]
+[ext_resource type="Texture2D" uid="uid://cjubqas1iv55b" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f2.png" id="5_kwyy7"]
+[ext_resource type="Texture2D" uid="uid://ofu7jeaeffxh" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f3.png" id="6_ahs55"]
+
+[sub_resource type="Resource" id="Resource_78g70"]
+script = ExtResource("3_7so6q")
+speed = 60.0
+max_health = 20
+attack_damage = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40hkm"]
+atlas = ExtResource("2_w3q4x")
+region = Rect2(368, 275, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox0c4"]
+atlas = ExtResource("2_w3q4x")
+region = Rect2(384, 275, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mco8v"]
+atlas = ExtResource("2_w3q4x")
+region = Rect2(400, 275, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n7iu"]
+atlas = ExtResource("3_bjw4e")
+region = Rect2(0, 0, 16, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybbe3"]
+atlas = ExtResource("4_w4nlg")
+region = Rect2(0, 0, 16, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5e2s"]
+atlas = ExtResource("5_kwyy7")
+region = Rect2(0, 0, 16, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyj5p"]
+atlas = ExtResource("6_ahs55")
+region = Rect2(0, 0, 16, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jclmc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40hkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mco8v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n7iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybbe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5e2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyj5p")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[node name="Chort" instance=ExtResource("1_groaq")]
+script = ExtResource("2_n75e1")
+entity_stats = SubResource("Resource_78g70")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 1)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_jclmc")
+frame_progress = 0.518608
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-0.5, 1)
+
+[connection signal="body_entered" from="OuterRange" to="." method="_on_outer_range_body_entered"]
+[connection signal="body_exited" from="OuterRange" to="." method="_on_outer_range_body_exited"]

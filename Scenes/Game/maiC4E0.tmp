@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcbygmx7wnxr"]
+[gd_scene load_steps=11 format=3 uid="uid://bcbygmx7wnxr"]
 
 [ext_resource type="Texture2D" uid="uid://c1li420pjhu3l" path="res://Art/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="1_omp74"]
 [ext_resource type="Texture2D" uid="uid://q8o6m2x6qxu7" path="res://Art/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="2_rg22l"]
 [ext_resource type="PackedScene" uid="uid://b8s43qgxwcbvx" path="res://Scenes/Player/player.tscn" id="3_bnql6"]
 [ext_resource type="Script" path="res://Scenes/Player/player_stats.gd" id="4_8t05y"]
-[ext_resource type="PackedScene" uid="uid://f0nnnievrspy" path="res://Scenes/Enemies/Chort/chort.tscn" id="5_2vimn"]
-[ext_resource type="Script" path="res://Scenes/Entity/Entity_stats.gd" id="6_lua0d"]
+[ext_resource type="PackedScene" uid="uid://dfhggj82nhpmt" path="res://Scenes/Enemies/Chort/chort.tscn" id="5_g01e5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mw4er"]
 texture = ExtResource("1_omp74")
@@ -322,13 +321,6 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(17, 18, 1135, 18, 1136, 617, 15, 620)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[sub_resource type="Resource" id="Resource_ckwb3"]
-resource_local_to_scene = true
-script = ExtResource("6_lua0d")
-speed = 5000.0
-max_health = 50
-attack_damage = 10
-
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -343,10 +335,9 @@ layer_1/tile_data = PackedInt32Array(65536, 524289, 1, 131072, 524289, 1, 196608
 position = Vector2(222, 126)
 player_stats = SubResource("Resource_qpyfh")
 
+[node name="Chort" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_g01e5")]
+position = Vector2(347, 145)
+player = NodePath("../Player")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_23jgi")
-
-[node name="Chort" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_2vimn")]
-position = Vector2(369, 190)
-player = NodePath("../Player")
-entity_stats = SubResource("Resource_ckwb3")

@@ -3,7 +3,6 @@ extends Entity
 class_name Player
 
 @export var player_stats: PlayerStats
-var direction = Vector2.ZERO
 
 func _physics_process(delta):
 	player_movement(delta)
