@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_wntlr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4kak8")
+animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 
