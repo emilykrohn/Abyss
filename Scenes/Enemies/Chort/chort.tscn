@@ -54,5 +54,8 @@ position = Vector2(0, 0.5)
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_6k74g")
 
+[node name="NavigationAgent2D" parent="." index="4"]
+debug_enabled = true
+
 [connection signal="body_entered" from="OuterRange" to="." method="_on_outer_range_body_entered"]
 [connection signal="body_exited" from="OuterRange" to="." method="_on_outer_range_body_exited"]
