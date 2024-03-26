@@ -6,6 +6,7 @@ class_name Player
 
 func _physics_process(delta):
 	player_movement(delta)
+	player_attack()
 	move_and_slide()
 
 func player_movement(delta: float):
@@ -15,3 +16,7 @@ func player_movement(delta: float):
 		velocity = direction * player_stats.speed * delta
 	else:
 		velocity = Vector2.ZERO
+
+func player_attack():
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		$AttackAnimation.play("swing")
